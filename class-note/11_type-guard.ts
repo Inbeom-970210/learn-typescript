@@ -21,3 +21,14 @@ if ((tony as Develop).skill) {
   var age = (tony as Person).age;
   console.log(age);
 }
+
+// 타입 가드 정의
+function isDeveloper(target: Develop | Person): target is Develop {
+  return (target as Develop).skill !== undefined;
+}
+
+if(isDeveloper(tony)) {
+  console.log(tony.skill);
+} else {
+  console.log(tony.age);
+}
